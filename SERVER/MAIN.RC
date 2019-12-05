@@ -1,0 +1,126 @@
+#define  INCL_WINDDE
+#include <os2.h>
+#include "Resource.h"
+
+ICON    IDR_MAIN     "DdeSrvr.ico"
+
+MENU    IDR_MAIN
+BEGIN
+  SUBMENU    "~Links"
+             , IDM_LINKS
+             , MIS_TEXT
+  BEGIN
+    MENUITEM "Terminate ~All"
+             , IDM_LINKS_TERMINATE_ALL
+             , MIS_TEXT
+             , MIA_DISABLED
+  END
+
+  SUBMENU    "~Topics"
+             , IDM_TOPICS
+             , MIS_TEXT
+  BEGIN
+  END
+
+  SUBMENU    "~Status"
+             , IDM_STATUS
+             , MIS_TEXT
+  BEGIN
+    MENUITEM "Ready"
+             , IDM_STATUS_READY
+             , MIS_TEXT
+             , MIA_CHECKED
+             | MIA_DISABLED
+    MENUITEM "Busy"
+             , IDM_STATUS_BUSY
+             ,  MIS_TEXT
+  END
+
+  SUBMENU    "~Display"
+             , IDM_DISPLAY
+             , MIS_TEXT
+  BEGIN
+    MENUITEM "~Auto"
+             , IDM_DISPLAY_AUTO
+             , MIS_TEXT
+             , MIA_CHECKED
+    MENUITEM "~Clear"
+             , IDM_DISPLAY_CLEAR
+             , MIS_TEXT
+    MENUITEM SEPARATOR
+    MENUITEM "~Data"
+             , IDM_DISPLAY_IMAGE
+             , MIS_TEXT
+             , MIA_CHECKED
+             | MIA_DISABLED
+    MENUITEM "~Binary"
+             , IDM_DISPLAY_BINARY
+             , MIS_TEXT
+  END
+
+  SUBMENU    "~Help"
+             , IDM_HELP
+             , MIS_TEXT
+  BEGIN
+    MENUITEM "~About"
+             , IDM_HELP_ABOUT
+             , MIS_TEXT
+  END
+END
+
+MENU    IDR_MAIN_MENU_SYSFORMATS
+BEGIN
+   MENUITEM "Text",          1,
+   MENUITEM "Bitmap",        2,
+   MENUITEM "MetaFile",      3,
+   MENUITEM "CpText",        4,
+   MENUITEM "Time",          5,
+END
+
+MENU    IDR_MAIN_MENU_SYSITEMFORMATS
+BEGIN
+   MENUITEM "Text",          1,
+   MENUITEM "CpText",        2,
+END
+
+MENU    IDR_MAIN_MENU_SYSPROTOCOLS
+BEGIN
+   MENUITEM "[set(interval,nn)]",      1
+END
+
+ACCELTABLE IDR_MAIN
+BEGIN
+   VK_F3,      SC_CLOSE,   VIRTUALKEY,     SYSCOMMAND
+END
+
+STRINGTABLE
+BEGIN
+  IDS_API_FAILED,                     "This Api failed!"
+  IDS_APP_NAME,                       "DDEServer"
+  IDS_APP_TERMINATING,                "Application terminating."
+  IDS_CANNOT_FREE_USERDATA,           "Could not free user data!"
+  IDS_DDE_POSITIVE_ACK,               "Positive Acknowlegment (ACK)."
+  IDS_DDE_NEGATIVE_ACK,               "Negative Acknowlegment (NACK)."
+  IDS_DDE_FORMAT_NOT_SUPPORTED,       "Format not supported."
+  IDS_DDE_BUSY,                       "Client is busy."
+  IDS_DDE_NOTPROCESSED,               "Not Processed."
+  IDS_DDE_NODATA,                     "Data waiting..."
+  IDS_DDE_RESPONSE,                   "In response to request."
+  IDS_DDE_APPSTATUS,                  "Application status."
+  IDS_INIT_FORMATS_ERROR,             "Could not insert format string."
+  IDS_CLOCK,                          "Clock"
+  IDS_TIME,                           "Time"
+  IDS_DDE_FORMAT_TIME,                "Time"
+  IDS_DDE_FORMAT_TEXT,                "Text"
+  IDS_DDE_FORMAT_CPTEXT,              "CPText"
+  IDS_DDE_FORMAT_BITMAP,              "Bitmap"
+  IDS_DDE_FORMAT_METAFILE,            "Metafile"
+  IDS_DDE_FORMAT_PALETTE,             "Palette"
+  IDS_DDE_FORMAT_LINK,                "Link"
+  IDS_DDE_FORMAT_NONE,                "None"
+  IDS_READY,                          "Ready"
+  IDS_BUSY,                           "Busy"
+END
+
+rcinclude main.dlg
+

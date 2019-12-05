@@ -1,0 +1,100 @@
+#include <os2.h>
+#include "Resource.h"
+
+ICON    IDR_MAIN     "DdeClnt.ico"
+
+MENU    IDR_MAIN
+BEGIN
+  SUBMENU    "~Links"
+             , IDM_LINKS
+             , MIS_TEXT
+  BEGIN
+    SUBMENU  "~Codepages"
+             , IDM_LINKS_CODEPAGES
+             , MIS_TEXT
+    BEGIN
+    END
+    MENUITEM SEPARATOR
+    MENUITEM "~Enumerate"
+             , IDM_LINKS_ENUMERATE
+             , MIS_TEXT
+    MENUITEM "~Initiate..."
+             , IDM_LINKS_INITIATE
+             , MIS_TEXT
+    MENUITEM "~Paste Special..."
+             , IDM_LINKS_PASTE_LINK
+             , MIS_TEXT
+             , MIA_DISABLED
+    MENUITEM SEPARATOR
+    MENUITEM "Terminate ~All"
+             , IDM_LINKS_TERMINATE_ALL
+             , MIS_TEXT
+             , MIA_DISABLED
+  END
+
+  SUBMENU    "~Servers"
+             , IDM_SERVERS
+             , MIS_TEXT
+             , MIA_DISABLED
+  BEGIN
+  END
+
+  SUBMENU    "~Display"
+             , IDM_DISPLAY
+             , MIS_TEXT
+  BEGIN
+    MENUITEM "~Auto"
+             , IDM_DISPLAY_AUTO
+             , MIS_TEXT
+             , MIA_CHECKED
+    MENUITEM "~Clear"
+             , IDM_DISPLAY_CLEAR
+             , MIS_TEXT
+    MENUITEM SEPARATOR
+    MENUITEM "~Image"
+             , IDM_DISPLAY_IMAGE
+             , MIS_TEXT
+             , MIA_CHECKED
+             | MIA_DISABLED
+    MENUITEM "~Binary"
+             , IDM_DISPLAY_BINARY
+             , MIS_TEXT
+  END
+
+  SUBMENU    "~Help"
+             , IDM_HELP
+             , MIS_TEXT
+  BEGIN
+    MENUITEM "~About"
+             , IDM_HELP_ABOUT
+             , MIS_TEXT
+  END
+END
+
+ACCELTABLE IDR_MAIN
+{
+   VK_F3,      SC_CLOSE,   VIRTUALKEY,     SYSCOMMAND
+}
+
+STRINGTABLE
+{
+  IDS_API_FAILED,                     "This Api failed!"
+  IDS_APP_NAME,                       "DDEClient"
+  IDS_DDE_POSITIVE_ACK,               "Positive Acknowlegment (ACK)."
+  IDS_DDE_NEGATIVE_ACK,               "Negative Acknowlegment (NACK)."
+  IDS_DDE_FORMAT_NOT_REGISTERED,      "Format not registered."
+  IDS_DDE_FORMAT_TIME,                "DDEFMT_Time"
+  IDS_DDE_FORMAT_TEXT,                "Text"
+  IDS_DDE_FORMAT_CPTEXT,              "CpText"
+  IDS_DDE_FORMAT_BITMAP,              "Bitmap"
+  IDS_DDE_FORMAT_METAFILE,            "Metafile"
+  IDS_DDE_FORMAT_PALETTE,             "Palette"
+  IDS_DDE_FORMAT_LINK,                "Link"
+  IDS_DDE_FORMAT_NONE,                ""
+  IDS_DDE_NODATA,                     "Data waiting..."
+  IDS_NO_SERVER_RESPONDED,            "No server responded."
+  IDS_LINK_ALREADY_ACTIVE,            "Link already active."
+}
+
+rcinclude main.dlg
+

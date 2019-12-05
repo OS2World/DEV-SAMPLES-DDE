@@ -1,0 +1,88 @@
+DLGINCLUDE 1 "D:\MYBOOK\SAMPLE\SERVER\RESOURCE.H"
+
+DLGTEMPLATE IDD_ABOUT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "About", IDD_ABOUT, 59, 4, 194, 90, FS_NOBYTEALIGN | WS_VISIBLE,
+            FCF_TITLEBAR
+    BEGIN
+        ICON            IDR_MAIN, IDC_ABOUT_ICON, 13, 56, 21, 21, WS_GROUP
+        CTEXT           "Created 1994, Glenn Puchtel", 257, 29, 35, 128, 8
+        DEFPUSHBUTTON   "Cancel", IDC_ABOUT_CANCEL, 78, 10, 38, 13
+        CTEXT           "Version 1.0", 2003, 58, 50, 73, 8
+        CTEXT           "PM DDE Server Application", 2004, 36, 65, 133, 8
+    END
+END
+
+DLGTEMPLATE IDD_TERMINATE LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Terminate...", IDD_TERMINATE, 49, 13, 152, 69, , FCF_TITLEBAR
+    BEGIN
+        LTEXT           "Server:", IDC_NULL, 5, 47, 40, 8
+        LTEXT           "Topic:", IDC_NULL, 4, 33, 40, 8
+        DEFPUSHBUTTON   "Terminate", IDC_TERMINATE_OK, 4, 2, 70, 14
+        PUSHBUTTON      "Cancel", IDC_TERMINATE_CANCEL, 77, 2, 70, 14
+        ENTRYFIELD      "", IDC_TERMINATE_SERVER, 47, 47, 96, 8, ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_TERMINATE_TOPIC, 47, 33, 96, 8, ES_MARGIN  | ES_READONLY
+    END
+END
+
+DLGTEMPLATE IDD_ITEM LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "", IDD_ITEM, 82, 15, 175, 95, WS_VISIBLE, FCF_SYSMENU |
+            FCF_TITLEBAR
+    BEGIN
+        LISTBOX         IDC_ITEM_DATA, 4, 20, 168, 72, LS_HORZSCROLL
+        PUSHBUTTON      "Update", IDC_ITEM_POST, 2, 2, 55, 14
+        DEFPUSHBUTTON   "Cancel", IDC_ITEM_CANCEL, 119, 2, 55, 14
+        PUSHBUTTON      "Paste Link", IDC_ITEM_PASTE_LINK, 60, 2, 55, 14
+    END
+END
+
+DLGTEMPLATE IDD_STRUCT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "", IDD_STRUCT, 12, 6, 174, 113, FS_NOMOVEWITHOWNER | NOT
+            FS_DLGBORDER | FS_BORDER | WS_VISIBLE | NOT WS_SAVEBITS
+    BEGIN
+        LTEXT           "Application", IDC_STRUCT_TEXT_STRING1, 2, 99, 53, 8,
+                        WS_DISABLED
+        LTEXT           "Topic", IDC_STRUCT_TEXT_STRING2, 2, 87, 53, 8,
+                        WS_DISABLED
+        LTEXT           "cbData", IDC_STRUCT_TEXT_CB, 2, 75, 47, 8,
+                        WS_DISABLED
+        LTEXT           "Country:",  IDC_STRUCT_TEXT_COUNTRY, 2, 39, 49, 8, WS_DISABLED
+        LTEXT           "Codepage:", IDC_STRUCT_TEXT_CODEPAGE, 2, 27, 45, 8, WS_DISABLED
+        LTEXT           "Sub Lang:", IDC_STRUCT_TEXT_SUBLANG, 2, 3, 50, 8, WS_DISABLED
+        LTEXT           "Language:", IDC_STRUCT_TEXT_LANGUAGE, 2, 15, 53, 8, WS_DISABLED
+        LTEXT           "Format:",   IDC_STRUCT_TEXT_FORMAT, 2, 51, 41, 8, WS_DISABLED
+        LTEXT           "Flags:",    IDC_STRUCT_TEXT_FLAGS, 2, 63, 52, 8, WS_DISABLED
+        ENTRYFIELD      "", IDC_STRUCT_CB, 52, 75, 45, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_STRING1, 52, 99, 116, 8, ES_MARGIN |
+                        ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_STRING2, 52, 87, 116, 8, ES_MARGIN |
+                        ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_FORMAT_ID, 52, 51, 31, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_COUNTRY_ID, 52, 39, 21, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_SUBLANGUAGE_ID, 52, 3, 21, 8,
+                        ES_RIGHT | ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_CODEPAGE_ID, 52, 27, 21, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_LANGUAGE_ID, 52, 15, 21, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_APPSTATUS, 134, 75, 34, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        LTEXT           "fCaseSensitive", IDC_STRUCT_FCASESENSITIVE, 90, 62, 72, 10, WS_DISABLED
+        LTEXT           "fResponse", IDC_STRUCT_FRESPONSE, 90, 2, 55, 10, WS_DISABLED
+        LTEXT           "fAckReq", IDC_STRUCT_FACKREQ, 90, 42, 53, 10, WS_DISABLED
+        LTEXT           "fAck", IDC_STRUCT_FACK, 90, 52, 40, 10, WS_DISABLED
+        LTEXT           "fBusy", IDC_STRUCT_FBUSY, 90, 22, 40, 10, WS_DISABLED
+        LTEXT           "fNotProcessed", IDC_STRUCT_FNOTPROCESSED, 90, 12, 72, 10, WS_DISABLED
+        LTEXT           "fNoData", IDC_STRUCT_FNODATA, 90, 32, 47, 10, WS_DISABLED
+        ENTRYFIELD      "", IDC_STRUCT_FLAGS, 52, 63, 31, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        LTEXT           "Status:", IDC_NULL, 100, 75, 31, 8, WS_DISABLED
+    END
+END
+

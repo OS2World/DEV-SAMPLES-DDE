@@ -1,0 +1,82 @@
+#------------------------------------------------------------------------------
+#
+#   DDE Server example
+#   Created 1993 IBM Corporation
+#
+#------------------------------------------------------------------------------
+include ..\common.inc
+
+HEADERS = main.h resource.h dialogs.h    \
+        $(BASE)\menu.h  $(BASE)\draw.h   \
+        $(BASE)\dde.h   $(BASE)\common.h \
+        $(BASE)\frame.h $(BASE)\client.h
+#------------------------------------------------------------------------------
+#   A list of all of the object files
+#------------------------------------------------------------------------------
+ALL_OBJ1 = main.obj common.obj dialogs.obj
+ALL_OBJ2 = menu.obj draw.obj dde.obj frame.obj client.obj
+
+#------------------------------------------------------------------------------
+#   This section lists all files to be built by the make.  The
+#   makefile builds the executible as well as its associated help
+#   file.
+#------------------------------------------------------------------------------
+all: DdeSrvr.exe
+
+#------------------------------------------------------------------------------
+#   This section creates the command file used by the linker.  This
+#   command file is recreated automatically every time you change
+#   the object file list, linker flags, or library list.
+#------------------------------------------------------------------------------
+DdeSrvr.lnk: makefile
+    echo $(ALL_OBJ1) + > DdeSrvr.lnk
+    echo $(ALL_OBJ2)  >> DdeSrvr.lnk
+    echo DdeSrvr.exe  >> DdeSrvr.lnk
+    echo DdeSrvr.map  >> DdeSrvr.lnk
+    echo $(LIBS)      >> DdeSrvr.lnk
+    echo DdeSrvr.def  >> DdeSrvr.lnk
+
+#-----------------------------------------------------------------------------
+# Dependencies
+#
+#   This section lists all object files needed to be built for the
+#   application, along with the files it is dependent upon (e.g. its
+#   source and any header files).
+#------------------------------------------------------------------------------
+Main.res:     main.rc resource.h DdeSrvr.ico main.dlg
+    $(RC) -r main.rc main.res
+
+Main.obj:     Main.c    $(HEADERS)
+    $(CC) $(CFLAGS) $(CINC) $*.c
+
+Dialogs.obj:  Dialogs.c $(HEADERS)
+    $(CC) $(CFLAGS) $(CINC) $*.c
+
+Common.obj: $(BASE)\Common.c  $(BASE)\Common.h
+    $(CC) $(CFLAGS) $(CINC) $(BASE)\$*.c
+
+Menu.obj:    $(BASE)\Menu.c $(BASE)\Menu.h
+    $(CC) $(CFLAGS) $(CINC) $(BASE)\$*.c
+
+Dde.obj:     $(BASE)\Dde.c $(BASE)\Dde.h
+    $(CC) $(CFLAGS) $(CINC) $(BASE)\$*.c
+
+Draw.obj:    $(BASE)\Draw.c $(BASE)\Draw.h
+    $(CC) $(CFLAGS) $(CINC) $(BASE)\$*.c
+
+Frame.obj:   $(BASE)\Frame.c $(BASE)\Frame.h
+    $(CC) $(CFLAGS) $(CINC) $(BASE)\$*.c
+
+Client.obj:  $(BASE)\Client.c $(BASE)\Client.h
+    $(CC) $(CFLAGS) $(CINC) $(BASE)\$*.c
+
+#-------------------------------------------------------------------
+#   This section links the object modules into the finished program
+#   using the linker command file created earlier.  At the end, the
+#   resource file is bound to the application.
+#-------------------------------------------------------------------
+DdeSrvr.exe: $(ALL_OBJ1) $(ALL_OBJ2) DdeSrvr.def DdeSrvr.lnk main.res
+    $(LINK) @DdeSrvr.lnk
+    rc main.res DdeSrvr.exe
+    mapsym DdeSrvr.map
+

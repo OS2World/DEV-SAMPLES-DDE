@@ -1,0 +1,152 @@
+DLGINCLUDE 1 "D:\MYBOOK\SAMPLE\CLIENT\RESOURCE.H"
+
+DLGTEMPLATE IDD_ABOUT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "About", IDD_ABOUT, 59, 4, 194, 90, FS_NOBYTEALIGN | WS_VISIBLE,
+            FCF_TITLEBAR
+    BEGIN
+        ICON            IDR_MAIN, IDC_ABOUT_ICON, 13, 56, 21, 21, WS_GROUP
+        CTEXT           "Created 1994, Glenn Puchtel", 257, 29, 35, 128, 8
+        DEFPUSHBUTTON   "~Cancel", IDC_ABOUT_CANCEL, 78, 10, 38, 13
+        CTEXT           "Version 1.0", 2003, 58, 50, 73, 8
+        CTEXT           "PM DDE Client Application", 2004, 36, 65, 133, 8
+    END
+END
+
+DLGTEMPLATE IDD_STRUCT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "", IDD_STRUCT, 12, 4, 175, 115, FS_NOMOVEWITHOWNER | NOT
+            FS_DLGBORDER | FS_BORDER | WS_VISIBLE | NOT WS_SAVEBITS
+    BEGIN
+        LTEXT           "Application:", IDC_STRUCT_TEXT_STRING1, 2, 101, 50,
+                        8, WS_DISABLED
+        LTEXT           "Topic:", IDC_STRUCT_TEXT_STRING2, 2, 89, 50, 8,
+                        WS_DISABLED
+        LTEXT           "cb:", IDC_STRUCT_TEXT_CB, 2, 77, 50, 8, WS_DISABLED
+        LTEXT           "Country:", IDC_STRUCT_TEXT_COUNTRY, 2, 41, 50, 8,
+                        WS_DISABLED
+        LTEXT           "Codepage:", IDC_STRUCT_TEXT_CODEPAGE, 2, 29, 50, 8,
+                        WS_DISABLED
+        LTEXT           "Sub Lang:", IDC_STRUCT_TEXT_SUBLANG, 2, 5, 50, 8,
+                        WS_DISABLED
+        LTEXT           "Language:", IDC_STRUCT_TEXT_LANGUAGE, 2, 17, 50, 8,
+                        WS_DISABLED
+        LTEXT           "Format:", IDC_STRUCT_TEXT_FORMAT, 2, 53, 50, 8,
+                        WS_DISABLED
+        LTEXT           "Flags:", IDC_STRUCT_TEXT_FLAGS, 2, 65, 50, 8,
+                        WS_DISABLED
+        ENTRYFIELD      "", IDC_STRUCT_CB, 55, 77, 45, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_STRING1, 55, 101, 116, 8, ES_MARGIN |
+                        ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_STRING2, 55, 89, 116, 8, ES_MARGIN |
+                        ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_FORMAT_ID, 55, 53, 31, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_COUNTRY_ID, 55, 41, 21, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_SUBLANGUAGE_ID, 55, 5, 21, 8,
+                        ES_RIGHT | ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_CODEPAGE_ID, 55, 29, 21, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_LANGUAGE_ID, 55, 17, 21, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", IDC_STRUCT_APPSTATUS, 137, 77, 34, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        LTEXT           "fCaseSensitive", IDC_STRUCT_FCASESENSITIVE, 100, 63,
+                        72, 10, WS_DISABLED
+        LTEXT           "fResponse", IDC_STRUCT_FRESPONSE, 100, 3, 55, 10,
+                        WS_DISABLED
+        LTEXT           "fAckReq", IDC_STRUCT_FACKREQ, 100, 44, 53, 10,
+                        WS_DISABLED
+        LTEXT           "fAck", IDC_STRUCT_FACK, 100, 54, 40, 10,
+                        WS_DISABLED
+        LTEXT           "fBusy", IDC_STRUCT_FBUSY, 100, 24, 40, 10,
+                        WS_DISABLED
+        LTEXT           "fNotProcessed", IDC_STRUCT_FNOTPROCESSED, 100, 13,
+                        72, 10, WS_DISABLED
+        LTEXT           "fNoData", IDC_STRUCT_FNODATA, 100, 34, 47, 10,
+                        WS_DISABLED
+        ENTRYFIELD      "", IDC_STRUCT_FLAGS, 55, 65, 31, 8, ES_RIGHT |
+                        ES_MARGIN | ES_READONLY
+        LTEXT           "Status:", IDC_NULL, 103, 77, 31, 8, WS_DISABLED
+    END
+END
+
+DLGTEMPLATE IDD_INITIATE LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Initiate...", IDD_INITIATE, 49, 13, 153, 69, , FCF_TITLEBAR
+    BEGIN
+        LTEXT           "Server:", IDC_NULL, 5, 48, 35, 8
+        LTEXT           "Topic:", IDC_NULL, 5, 31, 35, 8
+        ENTRYFIELD      "", IDC_INITIATE_SERVER, 47, 47, 96, 8, ES_MARGIN
+        ENTRYFIELD      "", IDC_INITIATE_TOPIC, 47, 30, 96, 8, ES_MARGIN
+        DEFPUSHBUTTON   "~Initiate", IDC_INITIATE_OK, 5, 5, 70, 14
+        PUSHBUTTON      "~Cancel", IDC_INITIATE_CANCEL, 79, 5, 70, 14
+    END
+END
+
+DLGTEMPLATE IDD_TERMINATE LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Terminate...", IDD_TERMINATE, 49, 13, 152, 69, , FCF_TITLEBAR
+    BEGIN
+        LTEXT           "Server:", IDC_NULL, 5, 47, 40, 8
+        LTEXT           "Topic:", IDC_NULL, 5, 33, 40, 8
+        DEFPUSHBUTTON   "~Terminate", IDC_TERMINATE_OK, 5, 5, 70, 14
+        PUSHBUTTON      "~Cancel", IDC_TERMINATE_CANCEL, 79, 5, 70, 14
+        ENTRYFIELD      "", IDC_TERMINATE_SERVER, 50, 47, 96, 8, ES_MARGIN |
+                        ES_READONLY
+        ENTRYFIELD      "", IDC_TERMINATE_TOPIC, 50, 33, 96, 8, ES_MARGIN |
+                        ES_READONLY
+    END
+END
+
+DLGTEMPLATE IDD_ITEM PRELOAD MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Item...", IDD_ITEM, 112, -15, 175, 146, , FCF_SYSMENU |
+            FCF_TITLEBAR
+    BEGIN
+        GROUPBOX        "Message:", IDC_NULL, 4, 60, 86, 85
+        AUTORADIOBUTTON "Request", IDC_ITEM_REQUEST, 8, 125, 50, 10,
+                        WS_TABSTOP
+        AUTORADIOBUTTON "Advise", IDC_ITEM_ADVISE, 8, 115, 50, 10,
+                        WS_TABSTOP
+        AUTOCHECKBOX    "fNoData", IDC_ITEM_FNODATA, 17, 105, 49, 10,
+                        WS_DISABLED
+        AUTOCHECKBOX    "fRequest Ack", IDC_ITEM_FACKREQ, 17, 95, 70, 10,
+                        WS_DISABLED
+        AUTORADIOBUTTON "UnAdvise", IDC_ITEM_UNADVISE, 8, 85, 50, 10,
+                        WS_TABSTOP
+        AUTORADIOBUTTON "Execute", IDC_ITEM_EXECUTE, 8, 75, 50, 10,
+                        WS_TABSTOP
+        AUTORADIOBUTTON "Poke", IDC_ITEM_POKE, 8, 65, 50, 10, WS_TABSTOP
+        GROUPBOX        "Format:", IDC_NULL, 94, 60, 75, 85
+        AUTORADIOBUTTON "None", IDC_ITEM_NONE, 98, 125, 37, 10, WS_TABSTOP |
+                        WS_DISABLED
+        AUTORADIOBUTTON "Text", IDC_ITEM_TEXT, 98, 115, 33, 10, WS_TABSTOP
+        AUTORADIOBUTTON "CP Text", IDC_ITEM_CPTEXT, 98, 105, 47, 10,
+                        WS_TABSTOP
+        AUTORADIOBUTTON "Bitmap", IDC_ITEM_BITMAP, 98, 95, 45, 10,
+                        WS_TABSTOP
+        AUTORADIOBUTTON "Metafile", IDC_ITEM_METAFILE, 98, 85, 48, 10,
+                        WS_TABSTOP
+        AUTORADIOBUTTON "Palette", IDC_ITEM_PALETTE, 98, 75, 47, 10,
+                        WS_TABSTOP | WS_DISABLED
+        AUTORADIOBUTTON "Private", IDC_ITEM_PRIVATE, 98, 65, 44, 10,
+                        WS_TABSTOP
+        ENTRYFIELD      "", IDC_ITEM_NAME, 42, 46, 126, 8, ES_MARGIN | WS_GROUP
+        ENTRYFIELD      "DDEFMT_Time", IDC_ITEM_FORMAT, 42, 34, 126, 8,
+                        ES_MARGIN | WS_DISABLED
+        ENTRYFIELD      "", IDC_ITEM_DATA, 42, 22, 126, 8, ES_MARGIN |
+                        WS_DISABLED
+        LTEXT           "Name:", IDC_NULL, 5, 46, 35, 8
+        LTEXT           "Format:", IDC_ITEM_TEXT_FORMAT, 5, 34, 35, 8,
+                        WS_DISABLED
+        LTEXT           "Data:", IDC_ITEM_TEXT_DATA, 5, 22, 35, 8,
+                        WS_DISABLED
+        DEFPUSHBUTTON   "~Post", IDC_ITEM_OK, 5, 5, 55, 14, WS_GROUP
+        PUSHBUTTON      "~Terminate...", IDC_ITEM_TERMINATE, 61, 5, 55, 14
+        PUSHBUTTON      "~Cancel", IDC_ITEM_CANCEL, 117, 5, 55, 14
+    END
+END
+
